@@ -1,72 +1,267 @@
-
 <style>
-  .flyer { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; font-family: var(--font-sans); }
-  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #854F0B; text-transform: uppercase; margin: 0 0 8px; }
-  .title { font-size: 24px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 6px; line-height: 1.3; }
-  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1.75rem; line-height: 1.6; }
-  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0 0 1.75rem; }
-  .three { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-bottom: 1.5rem; }
-  .p-card { border-radius: 12px; padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); }
-  .p-tag { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
-  .tag-prov { background: #FAEEDA; color: #633806; }
-  .tag-non  { background: #FAECE7; color: #712B13; }
-  .tag-fto  { background: #E1F5EE; color: #085041; }
-  .p-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 6px; }
-  .p-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin: 0 0 10px; }
-  .p-stat { font-size: 13px; font-weight: 500; color: var(--color-text-primary); padding-top: 8px; border-top: 0.5px solid var(--color-border-tertiary); }
-  .p-stat span { font-weight: 400; font-size: 12px; color: var(--color-text-secondary); }
-  .insight { background: #FAEEDA; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-  .insight-label { font-size: 11px; font-weight: 500; color: #854F0B; text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 6px; }
-  .insight-text { font-size: 14px; color: #412402; line-height: 1.7; margin: 0; }
-  .timeline { display: flex; gap: 0; margin-bottom: 2rem; }
-  .t-step { flex: 1; padding: 10px 12px; background: var(--color-background-secondary); font-size: 12px; color: var(--color-text-primary); line-height: 1.4; position: relative; }
-  .t-step:not(:last-child)::after { content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); color: var(--color-text-tertiary); font-size: 14px; z-index: 1; }
-  .t-step:first-child { border-radius: 8px 0 0 8px; }
-  .t-step:last-child { border-radius: 0 8px 8px 0; }
-  .t-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-tertiary); margin-bottom: 3px; }
-  .footer { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1rem; }
-  .footer-brand { font-size: 12px; color: var(--color-text-tertiary); }
-  .footer-cta { font-size: 12px; font-weight: 500; color: #854F0B; }
-  @media (max-width: 500px) { .three { grid-template-columns: 1fr; } .timeline { flex-direction: column; } .t-step { border-radius: 8px !important; } .t-step::after { display: none; } }
+  .flyer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    font-family: var(--font-sans);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #854F0B;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0 0 1.75rem;
+    line-height: 1.6;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin: 0 0 1.75rem;
+  }
+
+  .three {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .p-card {
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 0.5px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+  }
+
+  .p-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .tag-prov {
+    background: #FAEEDA;
+    color: #633806;
+  }
+
+  .tag-non {
+    background: #FAECE7;
+    color: #712B13;
+  }
+
+  .tag-fto {
+    background: #E1F5EE;
+    color: #085041;
+  }
+
+  .p-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 6px;
+  }
+
+  .p-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0 0 10px;
+  }
+
+  .p-stat {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    padding-top: 8px;
+    border-top: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .p-stat span {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+
+  .insight {
+    background: #FAEEDA;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .insight-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #854F0B;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 0 0 6px;
+  }
+
+  .insight-text {
+    font-size: 14px;
+    color: #412402;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .timeline {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+  }
+
+  .t-step {
+    flex: 1;
+    padding: 10px 12px;
+    background: var(--color-background-secondary);
+    font-size: 12px;
+    color: var(--color-text-primary);
+    line-height: 1.4;
+    position: relative;
+  }
+
+  .t-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    font-size: 14px;
+    z-index: 1;
+  }
+
+  .t-step:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .t-step:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  .t-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 3px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    padding-top: 1rem;
+  }
+
+  .footer-brand {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+  }
+
+  .footer-cta {
+    font-size: 12px;
+    font-weight: 500;
+    color: #854F0B;
+  }
+
+  @media (max-width: 500px) {
+    .three {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline {
+      flex-direction: column;
+    }
+
+    .t-step {
+      border-radius: 8px !important;
+    }
+
+    .t-step::after {
+      display: none;
+    }
+  }
 </style>
 <div class="flyer">
   <p class="eyebrow">Deep tech commercialization · 03</p>
   <h1 class="title">Patents protect your moat — but only if you file at the right time and understand what you own</h1>
-  <p class="subtitle">Three concepts every researcher-founder needs before talking to a tech transfer office or investor.</p>
+  <p class="subtitle">Three concepts every researcher-founder needs before talking to a tech transfer office or
+    investor.</p>
   <hr class="divider">
   <div class="three">
     <div class="p-card">
       <span class="p-tag tag-prov">Provisional</span>
       <p class="p-title">Provisional patent</p>
-      <p class="p-desc">Establishes a priority date. Gives you 12 months to refine the invention before filing a full application. Lower cost, faster to file.</p>
+      <p class="p-desc">Establishes a priority date. Gives you 12 months to refine the invention before filing a full
+        application. Lower cost, faster to file.</p>
       <p class="p-stat">~$1,500–$3K <span>with attorney</span></p>
     </div>
     <div class="p-card">
       <span class="p-tag tag-non">Non-provisional</span>
       <p class="p-title">Non-provisional patent</p>
-      <p class="p-desc">The real patent. Examined by USPTO. Can take 2–4 years to grant. Defines the actual claims you can enforce.</p>
+      <p class="p-desc">The real patent. Examined by USPTO. Can take 2–4 years to grant. Defines the actual claims you
+        can enforce.</p>
       <p class="p-stat">$10K–$30K+ <span>prosecution cost</span></p>
     </div>
     <div class="p-card">
       <span class="p-tag tag-fto">FTO</span>
       <p class="p-title">Freedom to operate</p>
-      <p class="p-desc">A legal analysis confirming your product doesn't infringe someone else's active patents. Separate from owning a patent yourself.</p>
+      <p class="p-desc">A legal analysis confirming your product doesn't infringe someone else's active patents.
+        Separate from owning a patent yourself.</p>
       <p class="p-stat">$5K–$20K <span>per analysis</span></p>
     </div>
   </div>
   <div class="insight">
     <p class="insight-label">The key insight</p>
-    <p class="insight-text">Owning a patent does not mean you have the right to sell your product — someone else's patent might block you. Always run an <strong>FTO analysis</strong> before commercializing, separate from your own IP strategy.</p>
+    <p class="insight-text">Owning a patent does not mean you have the right to sell your product — someone else's
+      patent might block you. Always run an <strong>FTO analysis</strong> before commercializing, separate from your own
+      IP strategy.</p>
   </div>
-  <p style="font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px;">Typical patent timeline from university lab</p>
+  <p
+    style="font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px;">
+    Typical patent timeline from university lab</p>
   <div class="timeline">
-    <div class="t-step"><p class="t-label">Discovery</p>Disclose to tech transfer office</div>
-    <div class="t-step"><p class="t-label">Month 1–3</p>File provisional patent</div>
-    <div class="t-step"><p class="t-label">Month 12</p>File non-provisional or PCT</div>
-    <div class="t-step"><p class="t-label">Year 3–5</p>Patent granted, license or spin out</div>
+    <div class="t-step">
+      <p class="t-label">Discovery</p>Disclose to tech transfer office
+    </div>
+    <div class="t-step">
+      <p class="t-label">Month 1–3</p>File provisional patent
+    </div>
+    <div class="t-step">
+      <p class="t-label">Month 12</p>File non-provisional or PCT
+    </div>
+    <div class="t-step">
+      <p class="t-label">Year 3–5</p>Patent granted, license or spin out
+    </div>
   </div>
-  <div class="footer">
-    <span class="footer-brand">GT Deep Tech Entrepreneurship Series</span>
-    <span class="footer-cta">Next: Regulatory pathways →</span>
+  <div class="footer" style="display: flex; justify-content: space-between; align-items: center;">
+    <a href="02-dilutive-nondilutive-funding.html" class="footer-cta" style="text-decoration: none; text-align: left; flex: 1; transition: opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Previous: Funding strategy</a>
+    <a href="../how-tos.html" class="footer-brand" style="text-decoration: none; text-align: center; flex: 1; transition: opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Back to database</a>
+    <a href="04-regulatory-pathways.html" class="footer-cta" style="text-decoration: none; text-align: right; flex: 1; transition: opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Next: Regulatory pathways</a>
   </div>
 </div>

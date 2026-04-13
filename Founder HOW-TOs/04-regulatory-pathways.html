@@ -1,88 +1,276 @@
-
 <style>
-  .flyer { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; font-family: var(--font-sans); }
-  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #185FA5; text-transform: uppercase; margin: 0 0 8px; }
-  .title { font-size: 24px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 6px; line-height: 1.3; }
-  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1.75rem; line-height: 1.6; }
-  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0 0 1.75rem; }
-  .paths { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-bottom: 1.5rem; }
-  .path-card { border-radius: 12px; padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); }
-  .path-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.05em; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
-  .tag-510 { background: #E6F1FB; color: #0C447C; }
-  .tag-dn  { background: #EEEDFE; color: #3C3489; }
-  .tag-pma { background: #FCEBEB; color: #791F1F; }
-  .path-name { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
-  .path-class { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.06em; }
-  .path-row { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
-  .path-row:last-child { border-bottom: none; }
-  .path-row-label { color: var(--color-text-secondary); }
-  .path-row-val { font-weight: 500; color: var(--color-text-primary); text-align: right; max-width: 55%; }
-  .insight { background: #E6F1FB; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-  .insight-label { font-size: 11px; font-weight: 500; color: #185FA5; text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 6px; }
-  .insight-text { font-size: 14px; color: #042C53; line-height: 1.7; margin: 0; }
-  .drug-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 2rem; }
-  .drug-card { background: var(--color-background-secondary); border-radius: 8px; padding: 12px; }
-  .drug-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-tertiary); margin: 0 0 4px; }
-  .drug-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
-  .drug-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; margin: 0; }
-  .footer { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1rem; }
-  .footer-brand { font-size: 12px; color: var(--color-text-tertiary); }
-  .footer-cta { font-size: 12px; font-weight: 500; color: #185FA5; }
-  @media (max-width: 500px) { .paths, .drug-row { grid-template-columns: 1fr; } }
+  .flyer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    font-family: var(--font-sans);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #185FA5;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0 0 1.75rem;
+    line-height: 1.6;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin: 0 0 1.75rem;
+  }
+
+  .paths {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .path-card {
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 0.5px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+  }
+
+  .path-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .tag-510 {
+    background: #E6F1FB;
+    color: #0C447C;
+  }
+
+  .tag-dn {
+    background: #EEEDFE;
+    color: #3C3489;
+  }
+
+  .tag-pma {
+    background: #FCEBEB;
+    color: #791F1F;
+  }
+
+  .path-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+  }
+
+  .path-class {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .path-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 5px 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .path-row:last-child {
+    border-bottom: none;
+  }
+
+  .path-row-label {
+    color: var(--color-text-secondary);
+  }
+
+  .path-row-val {
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-align: right;
+    max-width: 55%;
+  }
+
+  .insight {
+    background: #E6F1FB;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .insight-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #185FA5;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 0 0 6px;
+  }
+
+  .insight-text {
+    font-size: 14px;
+    color: #042C53;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .drug-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+
+  .drug-card {
+    background: var(--color-background-secondary);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .drug-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-tertiary);
+    margin: 0 0 4px;
+  }
+
+  .drug-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+  }
+
+  .drug-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    padding-top: 1rem;
+  }
+
+  .footer-brand {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+  }
+
+  .footer-cta {
+    font-size: 12px;
+    font-weight: 500;
+    color: #185FA5;
+  }
+
+  @media (max-width: 500px) {
+
+    .paths,
+    .drug-row {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 <div class="flyer">
   <p class="eyebrow">Deep tech commercialization · 04</p>
   <h1 class="title">Your FDA pathway determines your timeline, your data requirements, and your fundraise</h1>
-  <p class="subtitle">Picking the wrong pathway costs years. Know which class your device falls into before you design your clinical strategy.</p>
+  <p class="subtitle">Picking the wrong pathway costs years. Know which class your device falls into before you design
+    your clinical strategy.</p>
   <hr class="divider">
   <div class="paths">
     <div class="path-card">
       <span class="path-tag tag-510">510(k)</span>
       <p class="path-name">Substantial equivalence</p>
       <p class="path-class">Class II device</p>
-      <div class="path-row"><span class="path-row-label">Timeline</span><span class="path-row-val">3–12 months</span></div>
-      <div class="path-row"><span class="path-row-label">Clinical data</span><span class="path-row-val">Often not required</span></div>
-      <div class="path-row"><span class="path-row-label">Requirement</span><span class="path-row-val">Predicate device exists</span></div>
-      <div class="path-row"><span class="path-row-label">Example</span><span class="path-row-val">Blood pressure monitor</span></div>
+      <div class="path-row"><span class="path-row-label">Timeline</span><span class="path-row-val">3–12 months</span>
+      </div>
+      <div class="path-row"><span class="path-row-label">Clinical data</span><span class="path-row-val">Often not
+          required</span></div>
+      <div class="path-row"><span class="path-row-label">Requirement</span><span class="path-row-val">Predicate device
+          exists</span></div>
+      <div class="path-row"><span class="path-row-label">Example</span><span class="path-row-val">Blood pressure
+          monitor</span></div>
     </div>
     <div class="path-card">
       <span class="path-tag tag-dn">De Novo</span>
       <p class="path-name">Novel low-to-mod risk</p>
       <p class="path-class">Class I / II (new)</p>
-      <div class="path-row"><span class="path-row-label">Timeline</span><span class="path-row-val">12–24 months</span></div>
-      <div class="path-row"><span class="path-row-label">Clinical data</span><span class="path-row-val">Usually required</span></div>
-      <div class="path-row"><span class="path-row-label">Requirement</span><span class="path-row-val">No predicate exists</span></div>
-      <div class="path-row"><span class="path-row-label">Example</span><span class="path-row-val">First AI diagnostic tool</span></div>
+      <div class="path-row"><span class="path-row-label">Timeline</span><span class="path-row-val">12–24 months</span>
+      </div>
+      <div class="path-row"><span class="path-row-label">Clinical data</span><span class="path-row-val">Usually
+          required</span></div>
+      <div class="path-row"><span class="path-row-label">Requirement</span><span class="path-row-val">No predicate
+          exists</span></div>
+      <div class="path-row"><span class="path-row-label">Example</span><span class="path-row-val">First AI diagnostic
+          tool</span></div>
     </div>
     <div class="path-card">
       <span class="path-tag tag-pma">PMA</span>
       <p class="path-name">Premarket approval</p>
       <p class="path-class">Class III device</p>
-      <div class="path-row"><span class="path-row-label">Timeline</span><span class="path-row-val">3–7 years</span></div>
-      <div class="path-row"><span class="path-row-label">Clinical data</span><span class="path-row-val">Required (pivotal trial)</span></div>
-      <div class="path-row"><span class="path-row-label">Requirement</span><span class="path-row-val">High risk / life-sustaining</span></div>
-      <div class="path-row"><span class="path-row-label">Example</span><span class="path-row-val">Implantable cardiac device</span></div>
+      <div class="path-row"><span class="path-row-label">Timeline</span><span class="path-row-val">3–7 years</span>
+      </div>
+      <div class="path-row"><span class="path-row-label">Clinical data</span><span class="path-row-val">Required
+          (pivotal trial)</span></div>
+      <div class="path-row"><span class="path-row-label">Requirement</span><span class="path-row-val">High risk /
+          life-sustaining</span></div>
+      <div class="path-row"><span class="path-row-label">Example</span><span class="path-row-val">Implantable cardiac
+          device</span></div>
     </div>
   </div>
   <div class="insight">
     <p class="insight-label">The key insight</p>
-    <p class="insight-text">Investors price your regulatory risk. A 510(k) path with a clear predicate is fundable at pre-seed. A PMA path requires <strong>Series A+ capital and a clinical team</strong> before most VCs will lead. Know your class on day one.</p>
+    <p class="insight-text">Investors price your regulatory risk. A 510(k) path with a clear predicate is fundable at
+      pre-seed. A PMA path requires <strong>Series A+ capital and a clinical team</strong> before most VCs will lead.
+      Know your class on day one.</p>
   </div>
-  <p style="font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px;">Also relevant for therapeutics</p>
+  <p
+    style="font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px;">
+    Also relevant for therapeutics</p>
   <div class="drug-row">
     <div class="drug-card">
       <p class="drug-label">IND → NDA / BLA</p>
       <p class="drug-title">Drug / biologic pathway</p>
-      <p class="drug-desc">Phase I–III trials required. 10–15 year timeline typical. Breakthrough designation can accelerate.</p>
+      <p class="drug-desc">Phase I–III trials required. 10–15 year timeline typical. Breakthrough designation can
+        accelerate.</p>
     </div>
     <div class="drug-card">
       <p class="drug-label">Combination products</p>
       <p class="drug-title">Device + drug hybrids</p>
-      <p class="drug-desc">Regulated by primary mode of action. Often requires both FDA centers (CDRH + CDER) coordination.</p>
+      <p class="drug-desc">Regulated by primary mode of action. Often requires both FDA centers (CDRH + CDER)
+        coordination.</p>
     </div>
   </div>
-  <div class="footer">
-    <span class="footer-brand">GT Deep Tech Entrepreneurship Series</span>
-    <span class="footer-cta">Next: Communicating with investors →</span>
+  <div class="footer" style="display: flex; justify-content: space-between; align-items: center;">
+    <a href="03-patent-strategy.html" class="footer-cta" style="text-decoration: none; text-align: left; flex: 1; transition: opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Previous: Patent strategy</a>
+    <a href="../how-tos.html" class="footer-brand" style="text-decoration: none; text-align: center; flex: 1; transition: opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Back to database</a>
+    <a href="05-communicating-investors.html" class="footer-cta" style="text-decoration: none; text-align: right; flex: 1; transition: opacity 0.15s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Next: Pitching investors</a>
   </div>
 </div>
