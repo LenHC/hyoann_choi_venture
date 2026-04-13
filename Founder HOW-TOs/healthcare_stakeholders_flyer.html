@@ -1,0 +1,86 @@
+
+<style>
+  .flyer { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; font-family: var(--font-sans); }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #0F6E56; text-transform: uppercase; margin: 0 0 8px; }
+  .title { font-size: 26px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 6px; line-height: 1.25; }
+  .subtitle { font-size: 15px; color: var(--color-text-secondary); margin: 0 0 2rem; line-height: 1.5; }
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0 0 2rem; }
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+  .card-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
+  .badge-user { background: #E1F5EE; color: #085041; }
+  .badge-customer { background: #EEEDFE; color: #3C3489; }
+  .badge-payer { background: #FAEEDA; color: #633806; }
+  .card-role { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .card-example { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 12px; }
+  .card-question { font-size: 13px; color: var(--color-text-primary); line-height: 1.5; border-left: 2px solid var(--color-border-secondary); padding-left: 10px; margin: 0; border-radius: 0; }
+  .insight { background: #F1EFE8; border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .insight-label { font-size: 11px; font-weight: 500; color: #5F5E5A; text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 6px; }
+  .insight-text { font-size: 15px; color: #2C2C2A; line-height: 1.6; margin: 0; }
+  .insight-text strong { font-weight: 500; }
+  .example-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 2rem; }
+  .example-cell { text-align: center; padding: 10px 8px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); }
+  .example-cell-label { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 3px; }
+  .example-cell-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+  .footer { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1rem; }
+  .footer-brand { font-size: 12px; color: var(--color-text-tertiary); }
+  .footer-cta { font-size: 12px; font-weight: 500; color: #0F6E56; }
+  @media (max-width: 520px) {
+    .cards { grid-template-columns: 1fr; }
+    .example-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="flyer">
+  <p class="eyebrow">Deep tech commercialization · 01</p>
+  <h1 class="title">Healthcare has three different buyers — and they're rarely the same person</h1>
+  <p class="subtitle">Before you build, know exactly who you're selling to, who's writing the check, and who's approving coverage.</p>
+  <hr class="divider">
+
+  <div class="cards">
+    <div class="card">
+      <span class="card-badge badge-user">User</span>
+      <p class="card-role">Doctor / Patient</p>
+      <p class="card-example">Who actually uses your product</p>
+      <p class="card-question">"Does this make my job easier or improve my outcome?"</p>
+    </div>
+    <div class="card">
+      <span class="card-badge badge-customer">Customer</span>
+      <p class="card-role">Hospital / GPO / Purchaser</p>
+      <p class="card-example">Who signs the contract and pays</p>
+      <p class="card-question">"Does this reduce cost, liability, or improve throughput?"</p>
+    </div>
+    <div class="card">
+      <span class="card-badge badge-payer">Payer</span>
+      <p class="card-role">Insurance / CMS / Employer</p>
+      <p class="card-example">Who approves reimbursement</p>
+      <p class="card-question">"Is there clinical evidence and a billing code for this?"</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <p class="insight-label">The key insight</p>
+    <p class="insight-text">A doctor can love your device and a hospital can buy it — but if the payer won't reimburse, <strong>no one will use it at scale.</strong> Winning all three requires different evidence, different conversations, and different timing.</p>
+  </div>
+
+  <p style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin: 0 0 8px;">Real-world example: continuous glucose monitor</p>
+  <div class="example-row">
+    <div class="example-cell">
+      <p class="example-cell-label">User</p>
+      <p class="example-cell-val">Diabetic patient / endocrinologist</p>
+    </div>
+    <div class="example-cell">
+      <p class="example-cell-label">Customer</p>
+      <p class="example-cell-val">Pharmacy / durable medical equipment supplier</p>
+    </div>
+    <div class="example-cell">
+      <p class="example-cell-label">Payer</p>
+      <p class="example-cell-val">Medicare, Medicaid, or private insurer</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-brand">GT Deep Tech Entrepreneurship Series</span>
+    <span class="footer-cta">Next: Reimbursement strategy →</span>
+  </div>
+</div>

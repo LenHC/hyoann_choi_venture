@@ -1,0 +1,70 @@
+
+<style>
+  .flyer { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; font-family: var(--font-sans); }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #534AB7; text-transform: uppercase; margin: 0 0 8px; }
+  .title { font-size: 24px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 6px; line-height: 1.3; }
+  .subtitle { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1.75rem; line-height: 1.6; }
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 0 0 1.75rem; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+  .col-card { border-radius: 12px; padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); }
+  .col-header { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+  .col-sub { font-size: 12px; margin: 0 0 14px; }
+  .col-dilutive .col-header { color: #3C3489; }
+  .col-dilutive .col-sub { color: #534AB7; }
+  .col-non .col-header { color: #085041; }
+  .col-non .col-sub { color: #0F6E56; }
+  .item { font-size: 13px; color: var(--color-text-primary); padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.4; }
+  .item:last-child { border-bottom: none; padding-bottom: 0; }
+  .item-label { font-weight: 500; display: block; margin-bottom: 2px; }
+  .item-detail { color: var(--color-text-secondary); font-size: 12px; }
+  .insight { background: #EEEDFE; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .insight-label { font-size: 11px; font-weight: 500; color: #534AB7; text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 6px; }
+  .insight-text { font-size: 14px; color: #26215C; line-height: 1.7; margin: 0; }
+  .matrix { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 2rem; }
+  .m-cell { background: var(--color-background-secondary); border-radius: 8px; padding: 10px 8px; text-align: center; }
+  .m-label { font-size: 10px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 4px; }
+  .m-val { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin: 0; line-height: 1.4; }
+  .footer { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 1rem; }
+  .footer-brand { font-size: 12px; color: var(--color-text-tertiary); }
+  .footer-cta { font-size: 12px; font-weight: 500; color: #534AB7; }
+  @media (max-width: 500px) { .cols, .matrix { grid-template-columns: 1fr; } }
+</style>
+<div class="flyer">
+  <p class="eyebrow">Deep tech commercialization · 02</p>
+  <h1 class="title">Not all funding is the same — some costs you equity, some just costs you time</h1>
+  <p class="subtitle">Know which type of capital fits your stage, and never give away equity before you have to.</p>
+  <hr class="divider">
+  <div class="cols">
+    <div class="col-card col-dilutive">
+      <p class="col-header">Dilutive funding</p>
+      <p class="col-sub">You give up ownership</p>
+      <div class="item"><span class="item-label">Angel investment</span><span class="item-detail">$25K–$500K, pre-seed, high risk tolerance</span></div>
+      <div class="item"><span class="item-label">Venture capital</span><span class="item-detail">Seed to Series A+, milestone-driven</span></div>
+      <div class="item"><span class="item-label">Convertible notes / SAFEs</span><span class="item-detail">Debt that converts to equity at next round</span></div>
+      <div class="item"><span class="item-label">University spin-out equity</span><span class="item-detail">Tech transfer office takes a stake</span></div>
+    </div>
+    <div class="col-card col-non">
+      <p class="col-header">Non-dilutive funding</p>
+      <p class="col-sub">You keep full ownership</p>
+      <div class="item"><span class="item-label">SBIR / STTR grants</span><span class="item-detail">NSF, NIH, DOD — up to $2M+, no equity</span></div>
+      <div class="item"><span class="item-label">Federal grants (R01, etc.)</span><span class="item-detail">Academic-route, PI-led, longer timelines</span></div>
+      <div class="item"><span class="item-label">State & foundation grants</span><span class="item-detail">Ga. Research Alliance, disease foundations</span></div>
+      <div class="item"><span class="item-label">Revenue / contracts</span><span class="item-detail">Best non-dilutive capital: paying customers</span></div>
+    </div>
+  </div>
+  <div class="insight">
+    <p class="insight-label">The key insight</p>
+    <p class="insight-text">Deep tech founders often raise VC too early. SBIR Phase I (~$275K) and Phase II (~$1.8M) can get you to clinical proof-of-concept with <strong>zero dilution</strong> — dramatically increasing your valuation before your first equity round.</p>
+  </div>
+  <p style="font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 8px;">Rough sequencing for a deep tech startup</p>
+  <div class="matrix">
+    <div class="m-cell"><p class="m-label">Pre-idea</p><p class="m-val">Lab grants, R01</p></div>
+    <div class="m-cell"><p class="m-label">Early proof</p><p class="m-val">SBIR Phase I, angels</p></div>
+    <div class="m-cell"><p class="m-label">Prototype</p><p class="m-val">SBIR Phase II, seed VC</p></div>
+    <div class="m-cell"><p class="m-label">Clinical / scale</p><p class="m-val">Series A, strategic</p></div>
+  </div>
+  <div class="footer">
+    <span class="footer-brand">GT Deep Tech Entrepreneurship Series</span>
+    <span class="footer-cta">Next: Patent strategy →</span>
+  </div>
+</div>
